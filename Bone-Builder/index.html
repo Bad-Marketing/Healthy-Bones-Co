@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Bones Co. — Bone Builder Amazon Transition Plan</title>
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:#0a0a0a; --red:#cc1100; --red-dark:#8a0b00;
+    --white:#ffffff; --grey:#8a8a8a; --light-grey:#e5e5e5;
+    --charcoal:#1a1a1a; --off-white:#f4f4f2;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--black);overflow-x:hidden;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--black);border-bottom:2px solid var(--red);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;}
+  .nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:0.08em;white-space:nowrap;}
+  .nav-brand span{color:var(--red);}
+  .nav-links{display:flex;gap:0;list-style:none;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{display:block;padding:0 0.85rem;line-height:60px;font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;font-weight:700;letter-spacing:0.1em;color:var(--grey);text-decoration:none;text-transform:uppercase;transition:color 0.2s;white-space:nowrap;}
+  .nav-links a:hover,.nav-links a.active{color:var(--red);}
+
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;width:36px;height:36px;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:#fff;transition:all 0.3s;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .nav-mobile{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:var(--black);border-bottom:2px solid var(--red);}
+  .nav-mobile.open{display:block;}
+  .nav-mobile a{display:block;padding:0.9rem 1.5rem;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;color:var(--grey);text-decoration:none;text-transform:uppercase;border-bottom:1px solid #1a1a1a;transition:color 0.2s;}
+  .nav-mobile a:hover,.nav-mobile a.active-m{color:var(--red);}
+
+  #cover{min-height:100vh;background:var(--black);display:grid;place-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+  #cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(204,17,0,0.08) 0%,transparent 60%);pointer-events:none;}
+  .cover-inner{max-width:1200px;width:100%;}
+  .cover-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;font-weight:600;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;margin-bottom:1.5rem;}
+  .cover-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:0.9;text-transform:uppercase;}
+  .cover-title .line-white{font-size:clamp(3rem,11vw,11rem);color:var(--white);display:block;}
+  .cover-title .line-red{font-size:clamp(3rem,11vw,11rem);color:var(--red);display:block;}
+  .cover-rule{width:100%;height:2px;background:var(--red);margin:2rem 0;transform:scaleX(0);transform-origin:left;animation:ruleIn 0.8s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;}
+  @keyframes ruleIn{to{transform:scaleX(1);}}
+  .cover-tagline{font-size:1.15rem;color:var(--grey);font-style:italic;margin-bottom:3rem;}
+  .cover-byline{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.15em;color:#444;text-transform:uppercase;}
+  .fade-up{opacity:0;transform:translateY(24px);animation:fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards;}
+  @keyframes fadeUp{to{opacity:1;transform:none;}}
+  .cover-eyebrow{animation-delay:0.1s;} .cover-title{animation-delay:0.2s;} .cover-tagline{animation-delay:0.7s;} .cover-byline{animation-delay:0.9s;}
+
+  .content{max-width:1200px;margin:0 auto;padding:0 3rem;}
+  .section{padding:5rem 0 2rem;opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease;position:relative;}
+  .section.visible{opacity:1;transform:none;}
+  .section-header{background:var(--black);padding:1rem 1.5rem;display:flex;align-items:baseline;gap:0.75rem;margin-bottom:2rem;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;letter-spacing:0.05em;color:var(--white);text-transform:uppercase;}
+  .sub-heading{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);border-left:4px solid var(--red);padding-left:0.75rem;margin:2rem 0 0.85rem;}
+  .red-label{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.15em;color:var(--red);text-transform:uppercase;margin:1.5rem 0 0.5rem;}
+  p{font-size:1.05rem;line-height:1.7;color:#222;margin-bottom:0.85rem;}
+  .bullet-list{list-style:none;margin:0.5rem 0 1rem 0;}
+  .bullet-list li{font-size:1rem;line-height:1.65;color:#222;padding:0.25rem 0 0.25rem 1.4rem;position:relative;}
+  .bullet-list li::before{content:'–';position:absolute;left:0;color:var(--red);font-weight:700;}
+  .sub-bullet-list{list-style:none;margin:0.25rem 0 0.5rem 1.5rem;}
+  .sub-bullet-list li{font-size:0.95rem;line-height:1.6;color:#444;padding:0.1rem 0 0.1rem 1.2rem;position:relative;}
+  .sub-bullet-list li::before{content:'·';position:absolute;left:0;color:var(--grey);}
+  .callout{background:var(--charcoal);border-left:4px solid var(--red);padding:1rem 1.25rem;margin:1.5rem 0;}
+  .callout p{color:var(--white);font-style:italic;margin:0;font-size:1.05rem;line-height:1.7;}
+  .insight-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
+  .insight-table tr{border-bottom:1px solid var(--light-grey);}
+  .insight-table td{padding:0.9rem 1rem;font-size:1rem;vertical-align:top;}
+  .insight-table td:first-child{background:var(--charcoal);width:25%;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;line-height:1.4;}
+  .insight-table td:last-child{background:var(--white);color:#222;line-height:1.6;}
+  .phase-box{display:flex;margin:1rem 0;border:1px solid #ddd;}
+  .phase-num{background:var(--red);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;display:flex;align-items:center;justify-content:center;min-width:64px;padding:1rem 0.5rem;flex-shrink:0;}
+  .phase-content{background:var(--charcoal);padding:1rem 1.25rem;flex:1;}
+  .phase-title{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;margin-bottom:0.2rem;}
+  .phase-content p{color:#ccc;font-size:0.97rem;margin-bottom:0.6rem;}
+  .phase-content .bullet-list li{color:#ccc;font-size:0.97rem;}
+  .phase-content .bullet-list li::before{color:var(--red);}
+
+  #progress{position:fixed;top:60px;left:0;right:0;z-index:99;height:3px;background:var(--red);transform-origin:left;transform:scaleX(0);transition:transform 0.1s linear;}
+
+  #closing{background:var(--black);padding:4rem 2rem;text-align:center;margin-top:5rem;}
+  .closing-tagline{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:900;letter-spacing:0.12em;color:var(--red);text-transform:uppercase;margin-bottom:0.5rem;}
+  .closing-dept{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:0.15em;color:#444;text-transform:uppercase;}
+
+  /* ── EDITABLE TRANSITION TABLE (Step 1) ── */
+  .tt-legend{font-size:0.82rem;color:var(--grey);margin:0 0 1rem;display:flex;align-items:center;gap:0.45rem;}
+  .tt-wrap{margin-top:1.25rem;}
+  .tt-table-box{border:1px solid var(--light-grey);border-radius:6px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+  .tt-head{display:grid;grid-template-columns:1.1fr 1.2fr 1.2fr 1.3fr 72px;gap:0.75rem;padding:0.85rem 1.1rem;background:var(--black);}
+  .tt-head span{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#8a8a8a;font-weight:700;}
+  .tt-head span:first-child{color:var(--red);}
+  .tt-row{display:grid;grid-template-columns:1.1fr 1.2fr 1.2fr 1.3fr 72px;gap:0.75rem;align-items:center;background:#fff;border-bottom:1px solid var(--light-grey);padding:1rem 1.1rem;transition:background 0.15s;}
+  .tt-row:last-child{border-bottom:none;}
+  .tt-row:hover{background:#faf8f6;}
+  .tt-val{font-size:0.95rem;line-height:1.4;color:#222;word-break:break-word;}
+  .tt-val:nth-of-type(-n+3){border-right:1px solid var(--light-grey);padding-right:0.9rem;margin-right:-0.15rem;}
+  .tt-val.element{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:0.01em;color:var(--black);font-size:0.9rem;}
+  .tt-val.status{font-weight:600;font-size:0.9rem;}
+  .tt-status-badge{display:inline-flex;align-items:center;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.76rem;letter-spacing:0.04em;padding:0.2rem 0.6rem;border-radius:3px;text-transform:uppercase;white-space:nowrap;}
+  .tt-status-badge.unconfirmed{background:#fbe0dc;color:var(--red-dark);border:1px solid #f0bcb3;}
+  .tt-status-badge.confirmed{background:#dcf2e0;color:#1a7a3a;border:1px solid #b9e3c2;}
+  .tt-mlabel{display:none;font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);font-weight:700;margin-bottom:0.15rem;}
+  .tt-tbd-badge{display:inline-flex;align-items:center;gap:0.3rem;background:#fdecc8;color:#8a5a00;border:1px solid #f0d28a;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.76rem;letter-spacing:0.04em;padding:0.18rem 0.55rem;border-radius:3px;text-transform:uppercase;white-space:nowrap;}
+  .tt-actions{display:flex;flex-direction:column;gap:0.35rem;align-items:flex-end;}
+  .tt-icon-btn{background:none;border:1px solid var(--light-grey);width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--black);line-height:1;padding:0;}
+  .tt-icon-btn:hover{border-color:var(--red);color:var(--red);}
+  .tt-row.editing{border-left-color:var(--red);display:block;}
+  .tt-edit-fields{display:flex;flex-wrap:wrap;gap:0.7rem;}
+  .tt-field{min-width:160px;flex:1 1 160px;}
+  .tt-field label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);font-weight:700;margin-bottom:0.25rem;}
+  .tt-field input,.tt-field select{width:100%;font-family:'Barlow',sans-serif;font-size:0.92rem;padding:0.45rem 0.55rem;border:1px solid var(--light-grey);outline:none;background:#fff;}
+  .tt-field input:focus,.tt-field select:focus{border-color:var(--red);}
+  .tt-edit-row-actions{display:flex;gap:0.5rem;margin-top:0.85rem;}
+  .tt-save-btn{background:var(--black);color:#fff;border:none;padding:0.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;font-size:0.78rem;cursor:pointer;}
+  .tt-save-btn:hover{background:var(--red);}
+  .tt-cancel-btn{background:none;border:1px solid var(--light-grey);padding:0.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;font-size:0.78rem;cursor:pointer;color:var(--grey);}
+  .tt-cancel-btn:hover{border-color:var(--black);color:var(--black);}
+  .tt-add-btn{margin-top:0.5rem;background:none;border:2px dashed var(--light-grey);width:100%;padding:0.8rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:0.82rem;color:var(--grey);cursor:pointer;}
+  .tt-add-btn:hover{border-color:var(--red);color:var(--red);}
+  .tt-add-form{background:var(--charcoal);border-left:4px solid var(--red);padding:1.1rem 1.25rem;margin-top:0.6rem;}
+  .tt-status-msg{font-size:0.82rem;color:var(--grey);margin-top:0.5rem;}
+
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .cover-title .line-white,.cover-title .line-red{font-size:clamp(3rem,13vw,5rem);}
+    .section-title{font-size:1.3rem;}
+    .insight-table td:first-child{width:35%;font-size:0.65rem;}
+    .phase-num{min-width:50px;font-size:1.6rem;}
+    .content{padding:0 1.25rem;}
+    #cover{padding:5rem 1.25rem 3rem;}
+    .bhag-title{font-size:1.1rem !important;}
+
+    .tt-table-box{border:none;border-radius:0;box-shadow:none;background:transparent;overflow:visible;}
+    .tt-head{display:none;}
+    .tt-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:0.55rem 0.6rem;
+      position:relative;border:1px solid var(--light-grey);border-radius:8px;
+      background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.04);
+      padding:0.95rem 1rem 0.9rem;margin-bottom:0.75rem;
+    }
+    .tt-row:last-child{margin-bottom:0;}
+    .tt-row:hover{background:#fff;}
+
+    /* Element name = card title, full width, room reserved at right for icons */
+    .tt-val.element{
+      grid-column:1/-1;padding:0 62px 0.6rem 0;margin:0 0 0.15rem;
+      border-bottom:1px solid var(--light-grey);border-right:none !important;
+      font-size:1rem;
+    }
+
+    /* Current / New sit side by side as a clear before → after pair */
+    .tt-val:nth-of-type(2){grid-column:1;border-right:none !important;padding:0.55rem 0.65rem;margin:0;
+      background:var(--off-white);border:1px solid var(--light-grey);border-radius:5px;}
+    .tt-val:nth-of-type(3){grid-column:2;border-right:none !important;padding:0.55rem 0.65rem;margin:0;
+      background:var(--off-white);border:1px solid var(--light-grey);border-left:3px solid var(--red);border-radius:5px;}
+
+    /* Status = full-width footer chip */
+    .tt-val.status{
+      grid-column:1/-1;border-right:none !important;margin:0.3rem 0 0;
+      padding:0;font-size:0.86rem;
+    }
+    .tt-val.status .tt-status-badge{
+      display:flex;width:100%;justify-content:center;
+      padding:0.55rem 0.65rem;font-size:0.82rem;border-radius:5px;
+    }
+
+    .tt-mlabel{display:block;}
+    .tt-val.element .tt-mlabel{display:none;}
+
+    .tt-actions{position:absolute;top:0.95rem;right:1rem;flex-direction:row;gap:0.4rem;margin:0;}
+  }
+
+  /* ── SUPABASE COMMENT SYSTEM ── */
+  .section-comment-btn{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.5rem;background:transparent;border:1.5px solid var(--light-grey);padding:0.45rem 0.9rem;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);transition:all 0.2s;}
+  .section-comment-btn:hover{border-color:var(--red);color:var(--red);}
+  .section-comment-btn .cb-count{background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;padding:0.1rem 0.4rem;min-width:20px;text-align:center;display:none;}
+  .section-comment-btn.has-comments .cb-count{display:inline-block;}
+  .comment-panel{display:none;border:1.5px solid var(--light-grey);background:#fff;margin-top:0.75rem;}
+  .comment-panel.open{display:block;}
+  .comment-panel-inner{padding:1.25rem;}
+  .comment-thread{margin-bottom:1rem;}
+  .comment-item{border-left:3px solid var(--red);padding:0.75rem 1rem;margin-bottom:0.75rem;background:#fafafa;}
+  .comment-item-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.25rem;margin-bottom:0.35rem;}
+  .comment-item-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--black);}
+  .comment-item-time{font-size:0.78rem;color:var(--grey);}
+  .comment-item-text{font-size:0.95rem;line-height:1.6;color:#333;}
+  .no-comments{font-size:0.9rem;color:var(--grey);font-style:italic;margin-bottom:1rem;}
+  .comment-form textarea{width:100%;padding:0.6rem 0.75rem;border:1px solid #ddd;font-family:'Barlow',sans-serif;font-size:0.95rem;resize:vertical;outline:none;background:#fafafa;display:block;margin-bottom:0.5rem;}
+  .comment-form-row{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;}
+  .comment-form input[type=text]{flex:1;min-width:140px;padding:0.5rem 0.65rem;border:1px solid #ddd;font-family:'Barlow',sans-serif;font-size:0.95rem;outline:none;background:#fafafa;}
+  .comment-post-btn{background:var(--red);color:#fff;border:none;padding:0.5rem 1.25rem;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+  .comment-post-btn:hover{background:var(--red-dark);}
+  .comment-post-btn:disabled{opacity:0.5;cursor:default;}
+  .comment-status{font-size:0.82rem;color:var(--grey);margin-top:0.35rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">BAD <span>MARKETING</span></span>
+  <ul class="nav-links">
+    <li><a href="#s01">Decide Option</a></li>
+    <li><a href="#s02">Option A</a></li>
+    <li><a href="#s03">Option B</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#s01" onclick="closeMenu()">01 · Decide Which Option</a>
+  <a href="#s02" onclick="closeMenu()">02 · Option A — Existing ASIN Retained</a>
+  <a href="#s03" onclick="closeMenu()">03 · Option B — New ASIN Required</a>
+</div>
+<div id="progress"></div>
+
+<section id="cover">
+  <div class="cover-inner">
+    <p class="cover-eyebrow fade-up">Amazon Transition Plan</p>
+    <div class="cover-title fade-up">
+      <span class="line-white">HEALTHY</span>
+      <span class="line-red">BONES CO.</span>
+    </div>
+    <div class="cover-rule"></div>
+    <p class="cover-tagline fade-up">Bone Builder Collagen</p>
+    <p class="cover-byline fade-up">Prepared by BAD Marketing &nbsp;·&nbsp; Amazon Department</p>
+  </div>
+</section>
+
+<div class="content">
+
+  <!-- SECTION 01: STEP 1 - DECIDE WHICH OPTION -->
+  <div class="section" id="s01">
+    <div class="section-header"><span class="section-title">Step 1 — Decide Which Option</span></div>
+
+    <p>We need to establish exactly what is changing between the current and new product.</p>
+
+    <div class="tt-legend"><span class="tt-tbd-badge">⚠ TBD</span> = still needs client confirmation</div>
+
+    <div class="tt-wrap" id="ttWrap">
+      <div class="tt-table-box">
+        <div class="tt-head">
+          <span>Product Element</span><span>Current</span><span>New</span><span>Status</span><span></span>
+        </div>
+        <div id="ttRows"></div>
+      </div>
+      <button class="tt-add-btn" id="ttAddBtn" onclick="startAddRow()">+ Add Row</button>
+      <div id="ttAddFormWrap"></div>
+      <div class="tt-status-msg" id="ttStatusMsg"></div>
+    </div>
+
+    <p>Once the comparison is complete, determine:</p>
+    <p><em>Can the new Bone Builder remain on the existing ASIN?</em></p>
+
+    <div class="red-label">Preferred: Use Existing ASIN</div>
+    <p>Retaining the existing ASIN is strongly preferred due to:</p>
+    <ul class="bullet-list">
+      <li>Existing Subscribe &amp; Save subscriber base</li>
+      <li>Recurring revenue</li>
+      <li>Reviews and ratings</li>
+      <li>Sales history</li>
+      <li>Organic ranking and indexing</li>
+      <li>Existing PPC history</li>
+    </ul>
+
+    <div class="callout"><p>The final product specifications will determine which execution option we follow.</p></div>
+
+    <div id="comments-s01"></div>
+  </div>
+
+  <!-- SECTION 02: OPTION A - EXISTING ASIN RETAINED -->
+  <div class="section" id="s02">
+    <div class="section-header"><span class="section-title">Option A — Existing ASIN Retained</span></div>
+
+    <div class="phase-box">
+      <div class="phase-num">1</div>
+      <div class="phase-content">
+        <div class="phase-title">Inventory and SKU Transition</div>
+        <ul class="bullet-list">
+          <li>Create a new SKU for the pouch under the existing ASIN</li>
+          <li>Separate old vs. new inventory by SKU</li>
+          <li>Establish old inventory sell-through timeline</li>
+          <li>Establish new inventory availability date</li>
+          <li>Plan controlled old SKU → new SKU switchover</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">2</div>
+      <div class="phase-content">
+        <div class="phase-title">Subscribe &amp; Save Transition</div>
+        <ul class="bullet-list">
+          <li>Submit request to transfer subscribers from old SKU → new SKU</li>
+          <li>Coordinate subscriber transfer with inventory switchover</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">3</div>
+      <div class="phase-content">
+        <div class="phase-title">Develop Communication Asset Pack for Transition</div>
+        <p>Create dedicated assets explaining the 'Old Packaging → New Packaging' change before and during the transition:</p>
+        <ul class="bullet-list">
+          <li>Listing image</li>
+          <li>A+ transition module</li>
+          <li>Transition/explainer video</li>
+          <li>Brand Story asset</li>
+          <li>Store transition asset</li>
+          <li>Insert in remaining old inventory announcing the upcoming change</li>
+          <li>Dedicated Creator Connections transition campaign</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout"><p>Core Message: Same Bone Builder / Same Formula / New Packaging / Updated Serving</p></div>
+
+    <div class="phase-box">
+      <div class="phase-num">4</div>
+      <div class="phase-content">
+        <div class="phase-title">Post Transition Asset Update</div>
+        <p>Separately update all permanent Amazon content to accurately represent the pouch:</p>
+        <ul class="bullet-list">
+          <li>Listing images</li>
+          <li>A+ Content</li>
+          <li>Brand Story</li>
+          <li>Store</li>
+          <li>Cross-sell assets</li>
+          <li>Videos</li>
+          <li>PPC/custom advertising creatives where needed</li>
+        </ul>
+        <p>Complete an audit of all Amazon assets to identify anywhere the old tub or outdated serving information remains.</p>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">5</div>
+      <div class="phase-content">
+        <div class="phase-title">Go Live</div>
+        <ul class="bullet-list">
+          <li>Confirm new inventory is received and ready</li>
+          <li>Execute old SKU → new SKU transition</li>
+          <li>Execute S&amp;S subscriber transfer</li>
+          <li>Switch listing assets to new packaging</li>
+          <li>Update remaining brand assets</li>
+          <li>Maintain transition communication during initial switchover period</li>
+          <li>Monitor PPC/CVR during transition</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">6</div>
+      <div class="phase-content">
+        <div class="phase-title">Post-Transition Monitoring</div>
+        <ul class="bullet-list">
+          <li>Subscribe &amp; Save subscriber count</li>
+          <li>Sales</li>
+          <li>Conversion rate</li>
+          <li>Voice of the Customer</li>
+          <li>Reviews</li>
+          <li>Returns/refunds</li>
+        </ul>
+        <p>Once the new format is established and customer confusion risk is low, phase out the temporary transition messaging.</p>
+      </div>
+    </div>
+
+    <div id="comments-s02"></div>
+  </div>
+
+  <!-- SECTION 03: OPTION B - NEW ASIN REQUIRED -->
+  <div class="section" id="s03">
+    <div class="section-header"><span class="section-title">Option B — New ASIN Required</span></div>
+
+    <div class="red-label">Strategy</div>
+    <p>NEW PRODUCT LAUNCH + EXISTING CUSTOMER MIGRATION + SUBSCRIBER REBUILDING</p>
+
+    <div class="phase-box">
+      <div class="phase-num">1</div>
+      <div class="phase-content">
+        <div class="phase-title">New ASIN Launch</div>
+        <ul class="bullet-list">
+          <li>Create standalone new ASIN</li>
+          <li>Create full New Product Launch Asset Pack (SEO, copy, image stack, A+)</li>
+          <li>Integrate into Brand Story</li>
+          <li>Integrate prominently into Store</li>
+          <li>Establish launch offer</li>
+          <li>Launch Vine</li>
+          <li>Launch Subscribe &amp; Save when available</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">2</div>
+      <div class="phase-content">
+        <div class="phase-title">Old ASIN → New ASIN Transition Pack</div>
+        <p>Use the existing Bone Builder presence to educate current customers about the replacement:</p>
+        <ul class="bullet-list">
+          <li>Listing image to communicate the transition</li>
+          <li>A+ transition module</li>
+          <li>Transition/explainer video</li>
+          <li>Brand Story transition messaging</li>
+          <li>Store transition messaging</li>
+          <li>Insert in remaining old inventory</li>
+          <li>Consider using 'Newer version' widget</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout"><p>Core Message: Same Bone Builder / Same Formula / New Packaging / Updated Serving</p></div>
+
+    <div class="phase-box">
+      <div class="phase-num">3</div>
+      <div class="phase-content">
+        <div class="phase-title">Traffic and Search Visibility</div>
+        <ul class="bullet-list">
+          <li>Launch PPC for the new ASIN</li>
+          <li>Capture existing Bone Builder / Healthy Bones branded demand</li>
+          <li>Gradually shift PPC investment from old → new ASIN</li>
+          <li>Launch dedicated Creator Connections campaign</li>
+          <li>Prioritize new ASIN within the Store</li>
+          <li>Gradually establish new ASIN as the primary Bone Builder destination</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">4</div>
+      <div class="phase-content">
+        <div class="phase-title">Subscriber Recovery</div>
+        <p>Because existing subscriptions cannot be assumed to carry over to a new ASIN:</p>
+        <ul class="bullet-list">
+          <li>Begin customer education before old inventory disappears</li>
+          <li>Clearly communicate that the formula remains the same</li>
+          <li>Promote Sub&amp;Save enrollment on the new ASIN</li>
+          <li>Align Creator Connections campaign with Sub&amp;Save recovery</li>
+          <li>Track new subscriber acquisition against the existing subscriber baseline</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-num">5</div>
+      <div class="phase-content">
+        <div class="phase-title">Post-Launch Monitoring</div>
+        <ul class="bullet-list">
+          <li>New ASIN sales &amp; CVR</li>
+          <li>PPC performance</li>
+          <li>New Subscribe &amp; Save enrollments</li>
+          <li>Subscriber recovery vs. old ASIN baseline</li>
+          <li>Old vs. new ASIN sales split</li>
+          <li>Old inventory sell-through</li>
+          <li>Voice of the Customer / customer feedback</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="comments-s03"></div>
+  </div>
+
+</div>
+
+<footer id="closing">
+  <div class="closing-tagline">We Make Good Brands Go Bad</div>
+  <p class="closing-dept">BAD Marketing &nbsp;·&nbsp; Amazon Department</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  const btn=document.getElementById('hamburger');
+  const menu=document.getElementById('nav-mobile');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('nav-mobile').classList.remove('open');
+}
+
+// Scroll progress
+const progress = document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const scrolled=window.scrollY, total=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.transform=`scaleX(${scrolled/total})`;
+});
+
+// Section fade-in
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.section').forEach(s=>obs.observe(s));
+
+// Active nav
+const linkObs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.nav-links a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);if(a){a.classList.add('active');a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}}});},{threshold:0.4});
+document.querySelectorAll('[id]').forEach(s=>linkObs.observe(s));
+</script>
+
+<script>
+const SUPABASE_URL = 'https://zbcqdcwibbuyfmytfngn.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Ygi8oE8bmNlTbOgH6EuJPA_hSy156CR';
+const DOC_PREFIX = 'healthy-bones-bone-builder-transition';
+
+const SECTIONS = {
+  's01':'01 · Decide Which Option',
+  's02':'02 · Option A — Existing ASIN Retained',
+  's03':'03 · Option B — New ASIN Required'
+};
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ return esc(s).replace(/"/g,'&quot;'); }
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) + ' · ' + d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+}
+
+/* ===================== SECTION COMMENTS ===================== */
+async function fetchComments() {
+  try {
+    const sectionIds = Object.keys(SECTIONS).map(s => `${DOC_PREFIX}-${s}`);
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/comments?section_id=in.(${sectionIds.map(s=>`"${s}"`).join(',')})&order=created_at.asc`, {
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`
+      }
+    });
+    return await r.json();
+  } catch(e) { return []; }
+}
+
+async function saveComment(sectionId, name, body) {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/comments`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    },
+    body: JSON.stringify({ section_id: `${DOC_PREFIX}-${sectionId}`, name: name||'Anonymous', body })
+  });
+  if (!r.ok) throw new Error('Failed to save');
+  return await fetchComments();
+}
+
+function renderSection(sectionId, comments) {
+  const container = document.getElementById('comments-'+sectionId);
+  if (!container) return;
+  const fullId = `${DOC_PREFIX}-${sectionId}`;
+  const sectionComments = comments.filter(c => c.section_id === fullId);
+  const count = sectionComments.length;
+
+  container.innerHTML = `
+    <button class="section-comment-btn ${count>0?'has-comments':''}" onclick="togglePanel('${sectionId}')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      ${count>0 ? count+' comment'+(count>1?'s':'') : 'Add comment'}
+      <span class="cb-count">${count}</span>
+    </button>
+    <div class="comment-panel ${count>0?'open':''}" id="panel-${sectionId}">
+      <div class="comment-panel-inner">
+        <div class="comment-thread" id="thread-${sectionId}">
+          ${count===0 ? '<p class="no-comments">No comments yet on this section.</p>' :
+            sectionComments.map(c=>`
+              <div class="comment-item">
+                <div class="comment-item-header">
+                  <span class="comment-item-name">${esc(c.name||'Anonymous')}</span>
+                  <span class="comment-item-time">${formatDate(c.created_at)}</span>
+                </div>
+                <p class="comment-item-text">${esc(c.body)}</p>
+              </div>`).join('')}
+        </div>
+        <div class="comment-form">
+          <textarea id="txt-${sectionId}" rows="2" placeholder="Write a comment or question on this section..."></textarea>
+          <div class="comment-form-row">
+            <input type="text" id="name-${sectionId}" placeholder="Your name (optional)">
+            <button class="comment-post-btn" id="btn-${sectionId}" onclick="postComment('${sectionId}')">Post</button>
+          </div>
+          <div class="comment-status" id="status-${sectionId}"></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function togglePanel(sectionId) {
+  const panel = document.getElementById('panel-'+sectionId);
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    setTimeout(() => { const t = document.getElementById('txt-'+sectionId); if(t) t.focus(); }, 50);
+  }
+}
+
+async function postComment(sectionId) {
+  const txt = document.getElementById('txt-'+sectionId);
+  const nameEl = document.getElementById('name-'+sectionId);
+  const btn = document.getElementById('btn-'+sectionId);
+  const status = document.getElementById('status-'+sectionId);
+  const body = txt.value.trim();
+  if (!body) { status.textContent='Please write something first.'; status.style.color='#cc1100'; return; }
+  btn.disabled = true; status.textContent='Posting...'; status.style.color='#8a8a8a';
+  try {
+    const comments = await saveComment(sectionId, nameEl.value.trim(), body);
+    txt.value = ''; nameEl.value = '';
+    status.textContent='Posted ✓'; status.style.color='#2a7a2a';
+    setTimeout(()=>{ status.textContent=''; }, 3000);
+    Object.keys(SECTIONS).forEach(id => renderSection(id, comments));
+    setTimeout(()=>{ const p=document.getElementById('panel-'+sectionId); if(p) p.classList.add('open'); }, 50);
+  } catch(e) {
+    status.textContent='Failed to post. Please try again.'; status.style.color='#cc1100';
+  }
+  btn.disabled = false;
+}
+
+/* ===================== STEP 1 EDITABLE TABLE ===================== */
+/* Shared, permanent, publicly-editable comparison table.
+   Uses the same Supabase "comments" table as the section comment
+   system, but scoped to its own section_id namespace so it never
+   collides with real comments:  ${DOC_PREFIX}-table-<rowId>
+   Each row's current state is rebuilt by replaying its events
+   (op:'upsert' merges fields, op:'delete' removes the row). */
+const TABLE_NS = `${DOC_PREFIX}-table-`;
+
+const TT_SEED = [
+  { id:'r1',  element:'Formula / Ingredients',      current:'Current formula',      newVal:'Same formula',            status:'Confirmed' },
+  { id:'r2',  element:'Product Format',              current:'Collagen powder',      newVal:'Collagen powder',         status:'Confirmed' },
+  { id:'r3',  element:'Packaging',                   current:'Tub',                  newVal:'Pouch',                    status:'To be confirmed' },
+  { id:'r4',  element:'Scoop',                        current:'Scoop',                newVal:'TBD',                       status:'To be confirmed' },
+  { id:'r5',  element:'Serving Size',                 current:'1 scoop (5mg)',        newVal:'TBD',                       status:'To be confirmed' },
+  { id:'r6',  element:'Collagen per Serving',         current:'5mg',                  newVal:'~10g',                      status:'To be confirmed' },
+  { id:'r7',  element:'Servings per Container',       current:'30',                   newVal:'TBD',                       status:'To be confirmed' },
+  { id:'r8',  element:'Net Weight',                   current:'150g (5.29oz)',        newVal:'TBD',                       status:'To be confirmed' },
+  { id:'r9',  element:'Supplement Facts',             current:'Current',              newVal:'TBD',                       status:'To be confirmed' },
+  { id:'r10', element:'Price',                        current:'$29.99',               newVal:'TBD',                       status:'To be confirmed' }
+];
+
+let ttEvents = [];
+let ttEditingId = null;
+let ttAdding = false;
+
+async function fetchTableEvents(){
+  try{
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/comments?section_id=like.${TABLE_NS}*&order=created_at.asc`, {
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+    });
+    if(!r.ok) throw new Error('fetch failed');
+    return await r.json();
+  }catch(e){ return null; }
+}
+
+async function pushTableEvent(rowId, payload){
+  const section_id = `${TABLE_NS}${rowId}`;
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/comments`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': `Bearer ${SUPABASE_KEY}`,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    },
+    body: JSON.stringify({ section_id, name: 'Team', body: JSON.stringify(payload) })
+  });
+  if(!r.ok) throw new Error('save failed');
+  return await r.json();
+}
+
+function buildTableRows(events){
+  const rows = {};
+  TT_SEED.forEach(s => { rows[s.id] = { id:s.id, element:s.element, current:s.current, newVal:s.newVal, status:s.status, deleted:false }; });
+
+  (events||[]).forEach(ev => {
+    if(!ev.section_id || !ev.section_id.startsWith(TABLE_NS)) return;
+    const rowId = ev.section_id.slice(TABLE_NS.length);
+    let payload; try{ payload = JSON.parse(ev.body); }catch(e){ return; }
+    if(!rows[rowId]) rows[rowId] = { id:rowId, element:'', current:'', newVal:'', status:'', deleted:false };
+    if(payload.op === 'upsert'){
+      rows[rowId] = { ...rows[rowId], ...payload.fields, deleted:false };
+    } else if(payload.op === 'delete'){
+      rows[rowId].deleted = true;
+    }
+  });
+  return Object.values(rows).filter(r => !r.deleted);
+}
+
+function ttFormatValue(val){
+  const v = String(val==null?'':val).trim();
+  if(v.toUpperCase() === 'TBD'){
+    return '<span class="tt-tbd-badge">⚠ TBD</span>';
+  }
+  return esc(val);
+}
+
+function ttStatusBadgeHtml(status){
+  const isConfirmed = String(status||'').trim() === 'Confirmed';
+  const cls = isConfirmed ? 'confirmed' : 'unconfirmed';
+  const label = isConfirmed ? 'Confirmed' : 'To be confirmed';
+  return `<span class="tt-status-badge ${cls}">${label}</span>`;
+}
+
+function ttRowViewHtml(row){
+  return `
+    <div class="tt-row" id="tt-row-${escAttr(row.id)}">
+      <div class="tt-val element">${esc(row.element)}</div>
+      <div class="tt-val"><span class="tt-mlabel">Current</span>${ttFormatValue(row.current)}</div>
+      <div class="tt-val"><span class="tt-mlabel">→ New</span>${ttFormatValue(row.newVal)}</div>
+      <div class="tt-val status"><span class="tt-mlabel">Status</span>${ttStatusBadgeHtml(row.status)}</div>
+      <div class="tt-actions">
+        <button class="tt-icon-btn" title="Edit row" onclick="startEditRow('${escAttr(row.id)}')">✎</button>
+        <button class="tt-icon-btn" title="Delete row" onclick="deleteRow('${escAttr(row.id)}')">✕</button>
+      </div>
+    </div>`;
+}
+
+function ttRowEditHtml(row){
+  return `
+    <div class="tt-row editing" id="tt-row-${escAttr(row.id)}">
+      <div class="tt-edit-fields">
+        <div class="tt-field"><label>Product Element</label><input type="text" id="tt-edit-element-${escAttr(row.id)}" value="${escAttr(row.element)}"></div>
+        <div class="tt-field"><label>Current</label><input type="text" id="tt-edit-current-${escAttr(row.id)}" value="${escAttr(row.current)}"></div>
+        <div class="tt-field"><label>New</label><input type="text" id="tt-edit-new-${escAttr(row.id)}" value="${escAttr(row.newVal)}"></div>
+        <div class="tt-field"><label>Status</label>
+          <select id="tt-edit-status-${escAttr(row.id)}">
+            <option value="To be confirmed" ${row.status==='Confirmed'?'':'selected'}>To be confirmed</option>
+            <option value="Confirmed" ${row.status==='Confirmed'?'selected':''}>Confirmed</option>
+          </select>
+        </div>
+      </div>
+      <div class="tt-edit-row-actions">
+        <button class="tt-save-btn" onclick="saveEditRow('${escAttr(row.id)}')">Save</button>
+        <button class="tt-cancel-btn" onclick="cancelEditRow()">Cancel</button>
+      </div>
+    </div>`;
+}
+
+let TT_ROWS = [];
+
+function renderTable(){
+  const wrap = document.getElementById('ttRows');
+  wrap.innerHTML = TT_ROWS.map(row => row.id === ttEditingId ? ttRowEditHtml(row) : ttRowViewHtml(row)).join('');
+
+  const addBtn = document.getElementById('ttAddBtn');
+  const addFormWrap = document.getElementById('ttAddFormWrap');
+  if(ttAdding){
+    addBtn.style.display = 'none';
+    addFormWrap.innerHTML = `
+      <div class="tt-add-form">
+        <div class="tt-edit-fields">
+          <div class="tt-field"><label>Product Element</label><input type="text" id="tt-new-element" placeholder="e.g. Flavour"></div>
+          <div class="tt-field"><label>Current</label><input type="text" id="tt-new-current" placeholder="Current value"></div>
+          <div class="tt-field"><label>New</label><input type="text" id="tt-new-new" placeholder="New value"></div>
+          <div class="tt-field"><label>Status</label>
+            <select id="tt-new-status">
+              <option value="To be confirmed" selected>To be confirmed</option>
+              <option value="Confirmed">Confirmed</option>
+            </select>
+          </div>
+        </div>
+        <div class="tt-edit-row-actions">
+          <button class="tt-save-btn" onclick="saveAddRow()">Add Row</button>
+          <button class="tt-cancel-btn" onclick="cancelAddRow()">Cancel</button>
+        </div>
+      </div>`;
+  } else {
+    addBtn.style.display = 'block';
+    addFormWrap.innerHTML = '';
+  }
+}
+
+function startEditRow(id){
+  ttAdding = false;
+  ttEditingId = id;
+  renderTable();
+}
+function cancelEditRow(){
+  ttEditingId = null;
+  renderTable();
+}
+
+async function saveEditRow(id){
+  const element = document.getElementById('tt-edit-element-'+id).value.trim();
+  const current = document.getElementById('tt-edit-current-'+id).value.trim();
+  const newVal = document.getElementById('tt-edit-new-'+id).value.trim();
+  const status = document.getElementById('tt-edit-status-'+id).value.trim();
+  const statusMsg = document.getElementById('ttStatusMsg');
+  statusMsg.textContent = 'Saving...';
+  try{
+    await pushTableEvent(id, { op:'upsert', fields:{ element, current, newVal, status } });
+    ttEditingId = null;
+    statusMsg.textContent = 'Saved ✓';
+    setTimeout(()=>{ statusMsg.textContent=''; }, 2500);
+    await reloadTable();
+  }catch(e){
+    statusMsg.textContent = 'Could not save — check your connection and try again.';
+  }
+}
+
+async function deleteRow(id){
+  if(!confirm('Remove this row? This cannot be undone.')) return;
+  const statusMsg = document.getElementById('ttStatusMsg');
+  statusMsg.textContent = 'Removing...';
+  try{
+    await pushTableEvent(id, { op:'delete' });
+    statusMsg.textContent = '';
+    await reloadTable();
+  }catch(e){
+    statusMsg.textContent = 'Could not remove row — check your connection and try again.';
+  }
+}
+
+function startAddRow(){
+  ttEditingId = null;
+  ttAdding = true;
+  renderTable();
+  setTimeout(()=>{ const el=document.getElementById('tt-new-element'); if(el) el.focus(); }, 50);
+}
+function cancelAddRow(){
+  ttAdding = false;
+  renderTable();
+}
+
+async function saveAddRow(){
+  const element = document.getElementById('tt-new-element').value.trim();
+  const current = document.getElementById('tt-new-current').value.trim();
+  const newVal = document.getElementById('tt-new-new').value.trim();
+  const status = document.getElementById('tt-new-status').value.trim();
+  const statusMsg = document.getElementById('ttStatusMsg');
+  if(!element){ statusMsg.textContent = 'Please give the new row a Product Element name.'; return; }
+  const newId = 'r_' + Date.now();
+  statusMsg.textContent = 'Adding...';
+  try{
+    await pushTableEvent(newId, { op:'upsert', fields:{ element, current, newVal, status } });
+    ttAdding = false;
+    statusMsg.textContent = 'Added ✓';
+    setTimeout(()=>{ statusMsg.textContent=''; }, 2500);
+    await reloadTable();
+  }catch(e){
+    statusMsg.textContent = 'Could not add row — check your connection and try again.';
+  }
+}
+
+let ttSawSyncFailure = false;
+async function reloadTable(){
+  const events = await fetchTableEvents();
+  if(events !== null){
+    ttEvents = events;
+  } else if(!ttSawSyncFailure){
+    ttSawSyncFailure = true;
+    const statusMsg = document.getElementById('ttStatusMsg');
+    statusMsg.style.color = '#cc1100';
+    statusMsg.textContent = 'Not connected to the shared database — edits won\u2019t save right now. This is expected if you\u2019re previewing this file locally; once uploaded to GitHub Pages and opened via its https:// link, this should resolve.';
+  }
+  TT_ROWS = buildTableRows(ttEvents);
+  renderTable();
+}
+
+async function init() {
+  await reloadTable();
+  const comments = await fetchComments();
+  Object.keys(SECTIONS).forEach(id => renderSection(id, comments));
+  setTimeout(() => {
+    Object.keys(SECTIONS).forEach(id => {
+      const panel = document.getElementById('panel-'+id);
+      const hasComments = comments.some(c => c.section_id === `${DOC_PREFIX}-${id}`);
+      if (panel && hasComments) panel.classList.add('open');
+    });
+  }, 200);
+  setInterval(async () => {
+    const fresh = await fetchComments();
+    Object.keys(SECTIONS).forEach(id => renderSection(id, fresh));
+    // Only refresh the table from the network if no one is mid-edit/add locally.
+    if(ttEditingId === null && !ttAdding){
+      const events = await fetchTableEvents();
+      if(events !== null){ ttEvents = events; TT_ROWS = buildTableRows(ttEvents); renderTable(); }
+    }
+  }, 30000);
+}
+init();
+</script>
+</body>
+</html>
